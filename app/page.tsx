@@ -91,6 +91,40 @@ export default function LandingPage() {
         </div>
       </main>
 
+      {/* Inline Avatars Kinetic Headline */}
+      <div className="w-full max-w-[96vw]">
+        <InlineAvatars />
+      </div>
+
+      {/* Stats Counter Section */}
+      <section className="w-full max-w-[96vw] grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+        <CounterCard 
+          category="Countries"
+          label="Participating Nations"
+          targetValue={16}
+          suffix=" Nations"
+          bgColor="bg-purple-600"
+          textColor="text-white"
+        />
+        <CounterCard 
+          category="Duration"
+          label="Conference Days"
+          targetValue={5}
+          suffix=" Days"
+          bgColor="bg-amber-400"
+          textColor="text-black"
+        />
+        <CounterCard 
+          category="Year"
+          label="ICC Edition"
+          targetValue={2026}
+          decimals={0}
+          suffix=""
+          bgColor="bg-white"
+          textColor="text-black"
+        />
+      </section>
+
       {/* Kinetic Headline Section */}
       <section id="about" className="w-full max-w-[96vw] bg-white text-black rounded-3xl p-12 md:p-24 my-6">
         <motion.div
@@ -135,40 +169,6 @@ export default function LandingPage() {
       <div id="timeline" className="w-full max-w-[96vw]">
         <TimelineSection />
       </div>
-
-      {/* Inline Avatars Kinetic Headline */}
-      <div className="w-full max-w-[96vw]">
-        <InlineAvatars />
-      </div>
-
-      {/* Stats Counter Section */}
-      <section className="w-full max-w-[96vw] grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
-        <CounterCard 
-          category="Countries"
-          label="Participating Nations"
-          targetValue={16}
-          suffix=" Nations"
-          bgColor="bg-purple-600"
-          textColor="text-white"
-        />
-        <CounterCard 
-          category="Duration"
-          label="Conference Days"
-          targetValue={5}
-          suffix=" Days"
-          bgColor="bg-amber-400"
-          textColor="text-black"
-        />
-        <CounterCard 
-          category="Year"
-          label="ICC Edition"
-          targetValue={2026}
-          decimals={0}
-          suffix=""
-          bgColor="bg-white"
-          textColor="text-black"
-        />
-      </section>
 
       {/* Kinetic Footer */}
       <footer className="w-full max-w-[96vw] bg-[#050505] border border-white/10 rounded-3xl p-12 md:p-20 my-6 text-white">
