@@ -37,7 +37,7 @@ export default function FeaturedWork() {
   return (
     <section className="py-20 px-6 md:px-12 bg-white text-black rounded-3xl my-12">
       <div className="flex justify-between items-baseline mb-12">
-        <h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight">
+        <h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight font-display">
           Featured Work
         </h2>
       </div>
@@ -46,16 +46,16 @@ export default function FeaturedWork() {
         {projects.map((project, idx) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            whileHover={{ y: -8 }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: idx * 0.1 }}
+            whileHover={{ y: -8, scale: 1.02 }}
             className={`${project.size} ${project.color} ${project.textColor} p-8 rounded-3xl flex flex-col justify-between min-h-[380px] relative overflow-hidden group cursor-pointer shadow-lg`}
           >
             {/* Header / Title */}
             <div className="z-10 flex justify-between items-start">
-              <h3 className="text-2xl md:text-3xl font-bold uppercase max-w-md leading-tight">
+              <h3 className="text-2xl md:text-3xl font-bold uppercase max-w-md leading-tight font-display">
                 {project.title}
               </h3>
               <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all">

@@ -39,9 +39,15 @@ export default function TimelineSection() {
   };
 
   return (
-    <section className="py-20 px-6 md:px-12 bg-[#050505] text-white rounded-3xl my-12 border border-white/10">
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+      className="py-20 px-6 md:px-12 bg-[#050505] text-white rounded-3xl my-12 border border-white/10"
+    >
       <div className="flex justify-between items-center mb-12">
-        <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight">
+        <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight font-display">
           Our Timeline
         </h2>
         <div className="flex gap-4">
@@ -95,6 +101,6 @@ export default function TimelineSection() {
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }

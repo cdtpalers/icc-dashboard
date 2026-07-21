@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function InlineAvatars() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-white text-black rounded-3xl my-12 text-center flex flex-col items-center justify-center">
+    <section className="py-24 px-6 md:px-12 bg-white text-black rounded-3xl my-12 text-center flex flex-col items-center justify-center font-display">
       <div className="max-w-5xl">
         <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
           Creating moments{' '}

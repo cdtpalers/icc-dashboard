@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { ArrowRight, Send } from 'lucide-react';
 import ServiceHoverList from '@/components/landing/ServiceHoverList';
 import CounterCard from '@/components/landing/CounterCard';
@@ -9,11 +10,23 @@ import TimelineSection from '@/components/landing/TimelineSection';
 import InlineAvatars from '@/components/landing/InlineAvatars';
 
 export default function LandingPage() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white relative overflow-hidden flex flex-col items-center py-4">
+    <div className="min-h-screen bg-[#0A0A0A] text-white relative overflow-hidden flex flex-col items-center py-4 font-sans">
       
       {/* Floating Header */}
-      <header className="fixed top-8 z-50 w-full max-w-4xl px-4">
+      <motion.header 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30, delay: 0.2 }}
+        className="fixed top-8 z-50 w-full max-w-4xl px-4"
+      >
         <div className="bg-white text-black rounded-full px-8 py-3 flex items-center justify-between shadow-2xl">
           <div className="flex items-center gap-4 font-bold text-lg">
             <img src="/pma-assets/pma-logo.png" alt="PMA Logo" className="h-8 w-auto" />
@@ -31,39 +44,52 @@ export default function LandingPage() {
             <ArrowRight size={16} />
           </Link>
         </div>
-      </header>
+      </motion.header>
 
       {/* Hero Banner Container */}
-      <main className="w-full max-w-[96vw] mt-20 mb-6 border-[1px] border-white/20 rounded-[3rem] relative flex flex-col overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#050505] min-h-[50vh] lg:min-h-[75vh]">
+      <main ref={containerRef} className="w-full max-w-[96vw] mt-20 mb-6 border-[1px] border-white/20 rounded-[3rem] relative flex flex-col overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#050505] min-h-[50vh] lg:min-h-[75vh]">
         
         {/* Banner Image Area */}
         <div className="relative w-full flex-1 flex justify-center items-center overflow-hidden h-full">
           <motion.img 
-            initial={{ opacity: 0, scale: 1.05 }}
+            initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ type: "spring", stiffness: 100, damping: 30, duration: 1.5 }}
+            style={{ y }}
             src="/landing_banner.png" 
             alt="International Cadet Conference Banner"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center origin-top"
           />
           {/* Subtle overlay to enhance contrast for the floating header if it overlaps */}
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
         </div>
       </main>
 
-      {/* Kinetic Kinetic Headline Section */}
+      {/* Kinetic Headline Section */}
       <section id="about" className="w-full max-w-[96vw] bg-white text-black rounded-3xl p-12 md:p-24 my-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-8"
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-8 font-display"
         >
-          Organizers of<br />
-          emotional<br />
-          super events
-        </motion.h2>
+          {["Organizers of", "emotional", "super events"].map((line, i) => (
+            <div key={i} className="overflow-hidden">
+              <motion.div
+                variants={{
+                  hidden: { y: "100%", opacity: 0, rotateZ: 5 },
+                  visible: { y: "0%", opacity: 1, rotateZ: 0, transition: { type: "spring", stiffness: 200, damping: 20 } }
+                }}
+              >
+                {line}
+              </motion.div>
+            </div>
+          ))}
+        </motion.div>
         <p className="text-slate-600 max-w-xl text-base md:text-lg leading-relaxed">
           We are a team of professionals creating unique events for you. Whether it is a corporate event, wedding or festival, we strive to make every event special.
         </p>

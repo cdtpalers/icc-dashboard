@@ -62,7 +62,7 @@ export default function CounterCard({
 
       <div>
         <p className="text-xs font-bold uppercase tracking-wider mb-2 opacity-75">{label}</p>
-        <h3 className="text-6xl md:text-7xl font-extrabold font-mono tracking-tight">
+        <h3 className="text-6xl md:text-7xl font-extrabold font-display tracking-tight">
           {count.toFixed(decimals)}
           {suffix}
         </h3>
