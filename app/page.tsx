@@ -1,21 +1,41 @@
 "use client";
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { ArrowRight, Send } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { ArrowRight, Send, ChevronLeft, ChevronRight } from 'lucide-react';
 import ServiceHoverList from '@/components/landing/ServiceHoverList';
 import CounterCard from '@/components/landing/CounterCard';
 import FeaturedWork from '@/components/landing/FeaturedWork';
 import TimelineSection from '@/components/landing/TimelineSection';
 import InlineAvatars from '@/components/landing/InlineAvatars';
 
+const heroImages = [
+  { src: '/pma-assets/highlight-1.jpg', alt: 'PMA Cadets Parade' },
+  { src: '/pma-assets/highlight-2.jpg', alt: 'PMA Grounds & Ceremony' },
+  { src: '/pma-assets/gallery-1.jpg', alt: 'International Cadets Forum' },
+  { src: '/pma-assets/gallery-2.jpg', alt: 'PMA Cadets Formation' },
+  { src: '/pma-assets/gallery-3.jpg', alt: 'Cadets Drill Performance' },
+];
+
 export default function LandingPage() {
   const containerRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white relative overflow-hidden flex flex-col items-center py-4 font-sans">
@@ -52,46 +72,81 @@ export default function LandingPage() {
       </motion.header>
 
       {/* Hero Banner Container */}
-      <main ref={containerRef} className="w-full max-w-[96vw] mt-20 mb-6 border-[1px] border-white/20 rounded-[3rem] relative flex flex-col overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#050505] min-h-[50vh] lg:min-h-[75vh]">
+      <main ref={containerRef} className="w-full max-w-[96vw] mt-20 mb-6 border-[1px] border-white/20 rounded-[3rem] relative flex flex-col overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#050505] min-h-[55vh] lg:min-h-[75vh]">
         
-        {/* Banner Image Area */}
-        <div className="relative w-full flex-1 flex justify-center items-center overflow-hidden h-full">
-          <motion.img 
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 30, duration: 1.5 }}
-            style={{ y }}
-            src="/pma-assets/highlight-1.jpg" 
-            alt="International Cadet Conference Banner"
-            className="absolute inset-0 w-full h-full object-cover object-center origin-top"
-          />
+        {/* Banner Image Area & Slideshow */}
+        <div className="relative w-full flex-1 flex justify-center items-center overflow-hidden h-full min-h-[55vh] lg:min-h-[75vh]">
+          <AnimatePresence mode="popLayout">
+            <motion.img 
+              key={currentSlide}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              style={{ y }}
+              src={heroImages[currentSlide].src} 
+              alt={heroImages[currentSlide].alt}
+              className="absolute inset-0 w-full h-full object-cover object-center origin-top"
+            />
+          </AnimatePresence>
+
           {/* Subtle overlay to enhance contrast for the text */}
-          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/50 pointer-events-none" />
           
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="z-10 flex flex-col items-center text-center px-4"
+            className="z-10 flex flex-col items-center text-center px-4 my-auto py-16"
           >
             <h1 className="text-5xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.9] drop-shadow-lg font-display text-white max-w-5xl mx-auto">
               PMA INTERNATIONAL CADETS' CONFERENCE
             </h1>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium">
+              <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium shadow-md">
                 PMA, Baguio, Philippines
               </span>
-              <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium">
+              <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium shadow-md">
                 November 18-22, 2026
               </span>
             </div>
             <Link 
               href="/register"
-              className="mt-8 bg-white text-black px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:scale-105 transition-transform inline-block"
+              className="mt-8 bg-white text-black px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:scale-105 shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-transform inline-block"
             >
               REGISTER
             </Link>
           </motion.div>
+
+          {/* Slide Navigation Arrows */}
+          <button 
+            onClick={prevSlide} 
+            className="absolute left-6 z-20 w-12 h-12 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all opacity-80 hover:opacity-100 hover:scale-110 hidden sm:flex"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button 
+            onClick={nextSlide} 
+            className="absolute right-6 z-20 w-12 h-12 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all opacity-80 hover:opacity-100 hover:scale-110 hidden sm:flex"
+            aria-label="Next Slide"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-6 z-20 flex items-center gap-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+            {heroImages.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-2 rounded-full transition-all duration-500 ${
+                  currentSlide === idx ? 'w-8 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/70'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </main>
 
