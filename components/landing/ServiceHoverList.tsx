@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const services = [
-  { id: '01', title: 'MANAGEMENT', color: 'bg-amber-400', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&q=80' },
-  { id: '02', title: 'CORPORATE', color: 'bg-purple-500', img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=500&q=80' },
-  { id: '03', title: 'CONFERENCE', color: 'bg-blue-500', img: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&q=80' },
-  { id: '04', title: 'MARKETING', color: 'bg-emerald-400', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=80' },
+  { id: '01', title: 'MANAGEMENT', color: 'bg-amber-400', img: '/pma-assets/gallery-1.jpg' },
+  { id: '02', title: 'CORPORATE', color: 'bg-purple-500', img: '/pma-assets/highlight-1.jpg' },
+  { id: '03', title: 'CONFERENCE', color: 'bg-blue-500', img: '/pma-assets/gallery-2.jpg' },
+  { id: '04', title: 'MARKETING', color: 'bg-emerald-400', img: '/pma-assets/highlight-2.jpg' },
 ];
 
 export default function ServiceHoverList() {

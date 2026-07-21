@@ -15,9 +15,9 @@ export default function InlineAvatars() {
             className="inline-flex items-center align-middle mx-2"
           >
             <img 
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80" 
+              src="/pma-assets/pma-logo.png" 
               alt="Avatar 1"
-              className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-purple-500 object-cover shadow-lg transform -rotate-6"
+              className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-purple-500 object-contain shadow-lg transform -rotate-6 bg-white p-1"
             />
           </motion.span>
           that leave a mark{' '}
@@ -29,9 +29,9 @@ export default function InlineAvatars() {
             className="inline-flex items-center align-middle mx-2"
           >
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" 
+              src="/pma-assets/icc-logo.png" 
               alt="Avatar 2"
-              className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-emerald-500 object-cover shadow-lg transform rotate-6"
+              className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-emerald-500 object-contain shadow-lg transform rotate-6 bg-white p-1"
             />
           </motion.span>
           in memory

@@ -15,9 +15,9 @@ export default function LandingPage() {
       {/* Floating Header */}
       <header className="fixed top-8 z-50 w-full max-w-4xl px-4">
         <div className="bg-white text-black rounded-full px-8 py-3 flex items-center justify-between shadow-2xl">
-          <div className="flex items-center gap-2 font-bold text-lg">
-            <span>ICC</span>
-            <span className="text-slate-400 font-normal">| 2024</span>
+          <div className="flex items-center gap-4 font-bold text-lg">
+            <img src="/pma-assets/pma-logo.png" alt="PMA Logo" className="h-8 w-auto" />
+            <img src="/pma-assets/icc-logo.png" alt="ICC 2026" className="h-8 w-auto" />
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -121,9 +121,7 @@ export default function LandingPage() {
       <footer className="w-full max-w-[96vw] bg-[#050505] border border-white/10 rounded-3xl p-12 md:p-20 my-6 text-white">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-white/10 pb-16 mb-16 gap-8">
           <div>
-            <h2 className="text-6xl md:text-9xl font-black uppercase tracking-tighter">
-              ICC 2024
-            </h2>
+            <img src="/pma-assets/icc-logo.png" alt="ICC 2026" className="h-16 md:h-24 w-auto bg-white/10 rounded-2xl p-4 border border-white/20" />
           </div>
           
           <div className="flex flex-col md:flex-row gap-12 text-sm">
@@ -157,7 +155,7 @@ export default function LandingPage() {
           </div>
 
           <p className="text-xs text-slate-500">
-            © 2024 ICC Philippine Military Academy. All rights reserved.
+            © 2026 ICC Philippine Military Academy. All rights reserved.
           </p>
         </div>
       </footer>
