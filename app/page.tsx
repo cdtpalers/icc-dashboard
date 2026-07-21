@@ -35,8 +35,9 @@ export default function LandingPage() {
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
-            <a href="#work" className="hover:text-blue-600 transition-colors">Featured Work</a>
-            <a href="#timeline" className="hover:text-blue-600 transition-colors">Timeline</a>
+            <a href="#work" className="hover:text-blue-600 transition-colors">Highlights</a>
+            <a href="#timeline" className="hover:text-blue-600 transition-colors">Agenda</a>
+            <Link href="/register" className="hover:text-amber-500 transition-colors font-bold">Register</Link>
           </nav>
 
           <Link href="/dashboard" className="bg-[#111] text-white px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-black transition-colors">
@@ -80,12 +81,12 @@ export default function LandingPage() {
                 November 18-22, 2026
               </span>
             </div>
-            <a 
-              href="https://www.pma.edu.ph/pages/icc/register.html"
-              className="mt-8 bg-white text-black px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:scale-105 transition-transform"
+            <Link 
+              href="/register"
+              className="mt-8 bg-white text-black px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:scale-105 transition-transform inline-block"
             >
               REGISTER
-            </a>
+            </Link>
           </motion.div>
         </div>
       </main>
