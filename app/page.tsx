@@ -27,20 +27,24 @@ export default function LandingPage() {
         transition={{ type: "spring", stiffness: 300, damping: 30, delay: 0.2 }}
         className="fixed top-8 z-50 w-full max-w-4xl px-4"
       >
-        <div className="bg-white text-black rounded-full px-8 py-3 flex items-center justify-between shadow-2xl">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-full px-8 py-3 flex items-center justify-between shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all duration-500">
           <div className="flex items-center gap-4 font-bold text-lg">
-            <img src="/pma-assets/pma-logo.png" alt="PMA Logo" className="h-8 w-auto" />
-            <img src="/pma-assets/icc-logo.png" alt="ICC 2026" className="h-8 w-auto" />
+            <div className="bg-white/20 p-1.5 rounded-full border border-white/30 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+              <img src="/pma-assets/pma-logo.png" alt="PMA Logo" className="h-7 w-auto" />
+            </div>
+            <div className="bg-white/20 p-1.5 rounded-full border border-white/30 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+              <img src="/pma-assets/icc-logo.png" alt="ICC 2026" className="h-7 w-auto" />
+            </div>
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
-            <a href="#work" className="hover:text-blue-600 transition-colors">Highlights</a>
-            <a href="#timeline" className="hover:text-blue-600 transition-colors">Agenda</a>
-            <Link href="/dashboard" className="hover:text-blue-600 transition-colors">Dashboard</Link>
+            <a href="#about" className="text-slate-200 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">About</a>
+            <a href="#work" className="text-slate-200 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">Highlights</a>
+            <a href="#timeline" className="text-slate-200 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">Agenda</a>
+            <Link href="/dashboard" className="text-slate-200 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">Dashboard</Link>
           </nav>
 
-          <Link href="/register" className="bg-[#111] text-white px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-black transition-colors">
+          <Link href="/register" className="bg-white text-black px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-all">
             <span>Register</span>
             <ArrowRight size={16} />
           </Link>
