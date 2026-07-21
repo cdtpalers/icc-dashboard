@@ -6,7 +6,7 @@ export default function InlineAvatars() {
     <section className="py-24 px-6 md:px-12 bg-white text-black rounded-3xl my-12 text-center flex flex-col items-center justify-center font-display">
       <div className="max-w-5xl">
         <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
-          Creating moments{' '}
+          Transformational{' '}
           <motion.span 
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
@@ -20,7 +20,7 @@ export default function InlineAvatars() {
               className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-purple-500 object-contain shadow-lg transform -rotate-6 bg-white p-1"
             />
           </motion.span>
-          that leave a mark{' '}
+          Leadership in a{' '}
           <motion.span 
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
@@ -34,7 +34,7 @@ export default function InlineAvatars() {
               className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-emerald-500 object-contain shadow-lg transform rotate-6 bg-white p-1"
             />
           </motion.span>
-          in memory
+          Globalized World
         </h2>
       </div>
     </section>

@@ -4,31 +4,31 @@ import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'HOLIDAY MAGIC FESTIVAL',
+    title: 'LEADERSHIP TALKS & LECTURE SERIES',
     color: 'bg-purple-600',
     textColor: 'text-white',
     img: '/pma-assets/gallery-1.jpg',
     size: 'col-span-1 lg:col-span-2',
   },
   {
-    title: 'TEAMTREK: A JOURNEY TO INSPIRATION',
+    title: 'TOUR OF PMA GROUNDS',
     color: 'bg-amber-400',
     textColor: 'text-black',
     img: '/pma-assets/gallery-2.jpg',
     size: 'col-span-1',
   },
   {
-    title: 'INFLUENCE 360° INSIDER SUMMIT',
+    title: 'MULTINATIONAL MILITARY FORUM',
     color: 'bg-orange-500',
     textColor: 'text-white',
     img: '/pma-assets/gallery-3.jpg',
     size: 'col-span-1',
   },
   {
-    title: 'INNOVATION SUMMIT: PROGRESS',
+    title: 'CULTURAL EXCHANGE & PMA NIGHT',
     color: 'bg-emerald-500',
     textColor: 'text-white',
-    img: '/pma-assets/highlight-1.jpg',
+    img: '/pma-assets/highlight-2.jpg',
     size: 'col-span-1 lg:col-span-2',
   },
 ];
@@ -38,7 +38,7 @@ export default function FeaturedWork() {
     <section className="py-20 px-6 md:px-12 bg-white text-black rounded-3xl my-12">
       <div className="flex justify-between items-baseline mb-12">
         <h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight font-display">
-          Featured Work
+          Conference Highlights
         </h2>
       </div>
 

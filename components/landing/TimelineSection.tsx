@@ -6,24 +6,43 @@ import { ArrowLeft, ArrowRight, Users } from 'lucide-react';
 const timelineSteps = [
   {
     step: '01',
-    title: 'RESEARCH AND CONSULTATION',
-    description: 'Conducting meetings with the client to discuss goals, budget, and wishes. Preparing a preliminary concept and estimating costs.',
+    title: 'ARRIVAL & OPENING',
+    description: 'City Mayor\'s Welcome Message, Opening of the ICC, Institutional Briefing, and Superintendent Reception Dinner.',
     img: '/pma-assets/highlight-1.jpg',
     color: 'bg-amber-400 text-black',
+    date: 'Nov 18 (Wed)',
   },
   {
     step: '02',
-    title: 'PLANNING AND CONCEPT CREATION',
-    description: 'Development of a detailed event plan, including the choice of venue, theme, program and structure of the event.',
+    title: 'WELCOME & LECTURES',
+    description: 'Welcome to PMA ceremony, Lecture Series, Tour of PMA Grounds, and Movie Documentary screening.',
     img: '/pma-assets/highlight-2.jpg',
     color: 'bg-purple-600 text-white',
+    date: 'Nov 19 (Thu)',
   },
   {
     step: '03',
-    title: 'EXECUTION AND LIVE MANAGEMENT',
-    description: 'On-site coordination, technical setup, guest management, and live stage direction for a flawless experience.',
-    img: '/pma-assets/gallery-3.jpg',
+    title: 'MILITARY FORUM',
+    description: 'Military Conversation forum and Leadership Talk with Former Military Officers.',
+    img: '/pma-assets/gallery-1.jpg',
     color: 'bg-blue-600 text-white',
+    date: 'Nov 20 (Fri)',
+  },
+  {
+    step: '04',
+    title: 'CIVILIAN FORUM',
+    description: 'Civilian Conversation forum and Silent Drill Performance ceremony.',
+    img: '/pma-assets/gallery-2.jpg',
+    color: 'bg-emerald-500 text-white',
+    date: 'Nov 21 (Sat)',
+  },
+  {
+    step: '05',
+    title: 'TOUR & FAREWELL',
+    description: 'Baguio City Tour and PMA Night farewell social event.',
+    img: '/pma-assets/gallery-3.jpg',
+    color: 'bg-orange-500 text-white',
+    date: 'Nov 22 (Sun)',
   },
 ];
 
@@ -48,7 +67,7 @@ export default function TimelineSection() {
     >
       <div className="flex justify-between items-center mb-12">
         <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight font-display">
-          Our Timeline
+          Agenda at a Glance
         </h2>
         <div className="flex gap-4">
           <button 
@@ -80,9 +99,16 @@ export default function TimelineSection() {
               } ${item.color}`}
             >
               <div className="flex justify-between items-start z-10">
-                <span className="text-sm font-mono font-bold uppercase tracking-wider px-3 py-1 bg-black/20 rounded-full">
-                  Phase {item.step}
-                </span>
+                <div className="flex gap-2 items-center">
+                  <span className="text-sm font-mono font-bold uppercase tracking-wider px-3 py-1 bg-black/20 rounded-full">
+                    Phase {item.step}
+                  </span>
+                  {item.date && (
+                    <span className="text-sm font-mono font-bold uppercase tracking-wider px-3 py-1 bg-black/20 rounded-full border border-white/20">
+                      {item.date}
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="z-10">
@@ -94,7 +120,7 @@ export default function TimelineSection() {
                 </p>
                 <button className="px-5 py-2.5 rounded-full bg-black text-white text-xs font-bold uppercase flex items-center gap-2 hover:bg-slate-800 transition-colors">
                   <Users size={14} />
-                  <span>Meet the Team</span>
+                  <span>View Details</span>
                 </button>
               </div>
             </motion.div>

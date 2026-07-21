@@ -56,12 +56,37 @@ export default function LandingPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 30, duration: 1.5 }}
             style={{ y }}
-            src="/landing_banner.png" 
+            src="/pma-assets/highlight-1.jpg" 
             alt="International Cadet Conference Banner"
             className="absolute inset-0 w-full h-full object-cover object-center origin-top"
           />
-          {/* Subtle overlay to enhance contrast for the floating header if it overlaps */}
-          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+          {/* Subtle overlay to enhance contrast for the text */}
+          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="z-10 flex flex-col items-center text-center px-4"
+          >
+            <h1 className="text-5xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.9] drop-shadow-lg font-display text-white max-w-5xl mx-auto">
+              PMA INTERNATIONAL CADETS' CONFERENCE
+            </h1>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium">
+                PMA, Baguio, Philippines
+              </span>
+              <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium">
+                November 18-22, 2026
+              </span>
+            </div>
+            <a 
+              href="https://www.pma.edu.ph/pages/icc/register.html"
+              className="mt-8 bg-white text-black px-8 py-4 rounded-full text-sm md:text-base font-bold tracking-wide hover:scale-105 transition-transform"
+            >
+              REGISTER
+            </a>
+          </motion.div>
         </div>
       </main>
 
@@ -77,7 +102,7 @@ export default function LandingPage() {
           }}
           className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-8 font-display"
         >
-          {["Organizers of", "emotional", "super events"].map((line, i) => (
+          {["From Cadets", "to Catalysts"].map((line, i) => (
             <div key={i} className="overflow-hidden">
               <motion.div
                 variants={{
@@ -91,7 +116,7 @@ export default function LandingPage() {
           ))}
         </motion.div>
         <p className="text-slate-600 max-w-xl text-base md:text-lg leading-relaxed">
-          We are a team of professionals creating unique events for you. Whether it is a corporate event, wedding or festival, we strive to make every event special.
+          Welcome to the International Cadet Conference (ICC) 2026, proudly hosted by the Philippine Military Academy. This distinguished forum unites future military leaders from defense academies worldwide to engage in meaningful dialogue, strategic collaboration, and shared pursuit of leadership excellence.
         </p>
       </section>
 
@@ -118,26 +143,27 @@ export default function LandingPage() {
       {/* Stats Counter Section */}
       <section className="w-full max-w-[96vw] grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
         <CounterCard 
-          category="Blog"
-          label="Our Latest Articles"
-          targetValue={3}
-          suffix=" Articles"
+          category="Countries"
+          label="Participating Nations"
+          targetValue={16}
+          suffix=" Nations"
           bgColor="bg-purple-600"
           textColor="text-white"
         />
         <CounterCard 
-          category="Success"
-          label="Closed Projects"
-          targetValue={304}
+          category="Duration"
+          label="Conference Days"
+          targetValue={5}
+          suffix=" Days"
           bgColor="bg-amber-400"
           textColor="text-black"
         />
         <CounterCard 
-          category="Confidence"
-          label="Google Reviews Rating"
-          targetValue={4.9}
-          decimals={1}
-          suffix=" ★"
+          category="Year"
+          label="ICC Edition"
+          targetValue={2026}
+          decimals={0}
+          suffix=""
           bgColor="bg-white"
           textColor="text-black"
         />
@@ -162,8 +188,8 @@ export default function LandingPage() {
 
             <div>
               <p className="text-slate-500 uppercase font-mono mb-4">Contact Us</p>
-              <p className="text-lg font-bold">hello@icc2024.com</p>
-              <p className="text-slate-400">+61 195 234 567</p>
+              <p className="text-lg font-bold">icc@pma.edu.ph</p>
+              <p className="text-slate-400">+63 74 447 3560</p>
             </div>
           </div>
         </div>

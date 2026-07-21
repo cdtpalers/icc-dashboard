@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const services = [
-  { id: '01', title: 'MANAGEMENT', color: 'bg-amber-400', img: '/pma-assets/gallery-1.jpg' },
-  { id: '02', title: 'CORPORATE', color: 'bg-purple-500', img: '/pma-assets/highlight-1.jpg' },
-  { id: '03', title: 'CONFERENCE', color: 'bg-blue-500', img: '/pma-assets/gallery-2.jpg' },
-  { id: '04', title: 'MARKETING', color: 'bg-emerald-400', img: '/pma-assets/highlight-2.jpg' },
+  { id: '01', title: 'LEADERSHIP DEVELOPMENT', color: 'bg-amber-400', img: '/pma-assets/gallery-1.jpg' },
+  { id: '02', title: 'CULTURAL EXCHANGE', color: 'bg-purple-500', img: '/pma-assets/highlight-1.jpg' },
+  { id: '03', title: 'PROFESSIONAL NETWORKS', color: 'bg-blue-500', img: '/pma-assets/gallery-2.jpg' },
+  { id: '04', title: 'STRATEGIC COLLABORATION', color: 'bg-emerald-400', img: '/pma-assets/highlight-2.jpg' },
 ];
 
 export default function ServiceHoverList() {
@@ -28,11 +28,11 @@ export default function ServiceHoverList() {
       onMouseMove={handleMouseMove}
     >
       <div className="mb-12 flex justify-between items-end">
-        <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white">
-          We turn events<br />into reality!
+        <h2 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-tight text-white">
+          Why Attend<br />PMA ICC 2026?
         </h2>
         <p className="text-slate-400 max-w-sm text-sm hidden md:block">
-          Our experienced professionals are dedicated to creating immersive and interactive experiences that connect brands with customers in unique ways.
+          A premier leadership and defense-focused forum where ideas turn into action. Engage with fellow cadets, military leaders, and strategic thinkers.
         </p>
       </div>
 
