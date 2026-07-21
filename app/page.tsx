@@ -37,11 +37,11 @@ export default function LandingPage() {
             <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
             <a href="#work" className="hover:text-blue-600 transition-colors">Highlights</a>
             <a href="#timeline" className="hover:text-blue-600 transition-colors">Agenda</a>
-            <Link href="/register" className="hover:text-amber-500 transition-colors font-bold">Register</Link>
+            <Link href="/dashboard" className="hover:text-blue-600 transition-colors">Dashboard</Link>
           </nav>
 
-          <Link href="/dashboard" className="bg-[#111] text-white px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-black transition-colors">
-            <span>Dashboard</span>
+          <Link href="/register" className="bg-[#111] text-white px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-black transition-colors">
+            <span>Register</span>
             <ArrowRight size={16} />
           </Link>
         </div>
