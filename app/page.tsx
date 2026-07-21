@@ -130,33 +130,70 @@ export default function LandingPage() {
       </section>
 
       {/* Kinetic Headline Section */}
-      <section id="about" className="w-full max-w-[96vw] bg-white text-black rounded-3xl p-12 md:p-24 my-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } }
-          }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-8 font-display"
-        >
-          {["From Cadets", "to Catalysts"].map((line, i) => (
-            <div key={i} className="overflow-hidden">
-              <motion.div
-                variants={{
-                  hidden: { y: "100%", opacity: 0, rotateZ: 5 },
-                  visible: { y: "0%", opacity: 1, rotateZ: 0, transition: { type: "spring", stiffness: 200, damping: 20 } }
-                }}
-              >
-                {line}
-              </motion.div>
+      <section id="about" className="w-full max-w-[96vw] bg-white text-black rounded-3xl p-8 md:p-16 lg:p-20 my-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Text Content */}
+          <div className="lg:col-span-7 space-y-6">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.1 } }
+              }}
+              className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none font-display"
+            >
+              {["From Cadets", "to Catalysts"].map((line, i) => (
+                <div key={i} className="overflow-hidden">
+                  <motion.div
+                    variants={{
+                      hidden: { y: "100%", opacity: 0, rotateZ: 5 },
+                      visible: { y: "0%", opacity: 1, rotateZ: 0, transition: { type: "spring", stiffness: 200, damping: 20 } }
+                    }}
+                  >
+                    {line}
+                  </motion.div>
+                </div>
+              ))}
+            </motion.div>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl">
+              Welcome to the International Cadet Conference (ICC) 2026, proudly hosted by the Philippine Military Academy. This distinguished forum unites future military leaders from defense academies worldwide to engage in meaningful dialogue, strategic collaboration, and shared pursuit of leadership excellence.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-xs font-bold text-slate-800 uppercase tracking-wider">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Official PMA Event
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-xs font-bold text-slate-800 uppercase tracking-wider">
+                Fort Del Pilar, Baguio City
+              </span>
             </div>
-          ))}
-        </motion.div>
-        <p className="text-slate-600 max-w-xl text-base md:text-lg leading-relaxed">
-          Welcome to the International Cadet Conference (ICC) 2026, proudly hosted by the Philippine Military Academy. This distinguished forum unites future military leaders from defense academies worldwide to engage in meaningful dialogue, strategic collaboration, and shared pursuit of leadership excellence.
-        </p>
+          </div>
+
+          {/* Right Column: Seamless Filler Photo Card */}
+          <div className="lg:col-span-5 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group h-[320px] md:h-[420px]"
+            >
+              <img 
+                src="/pma-assets/gallery-1.jpg" 
+                alt="PMA Cadets in formation" 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+              
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <p className="text-xs uppercase tracking-widest font-mono text-amber-400 font-bold mb-1">Philippine Military Academy</p>
+                <p className="text-xl font-bold font-display leading-snug">Empowering Tomorrow's Global Military Leaders</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Featured Work Grid */}
