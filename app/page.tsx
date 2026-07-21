@@ -33,54 +33,21 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Section Container */}
-      <main className="w-full max-w-[96vw] mt-20 mb-6 border-[1px] border-white/20 rounded-[3rem] relative flex flex-col overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#050505]">
+      {/* Hero Banner Container */}
+      <main className="w-full max-w-[96vw] mt-20 mb-6 border-[1px] border-white/20 rounded-[3rem] relative flex flex-col overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#050505] min-h-[50vh] lg:min-h-[75vh]">
         
-        {/* Hero Top */}
-        <div className="w-full pt-16 md:pt-24 px-8 md:px-16 flex flex-col z-10">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-slate-400 text-xs md:text-sm tracking-widest uppercase mb-2"
-          >
-            EVENT STUDIO
-          </motion.p>
-          
-          <div className="w-full flex flex-col lg:flex-row lg:items-end justify-between relative">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-6xl md:text-[8rem] lg:text-[11rem] font-bold tracking-tighter leading-none z-10 drop-shadow-lg"
-            >
-              ICC 2024
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-left lg:text-right text-slate-300 max-w-[250px] text-xs md:text-sm uppercase tracking-wider mb-2 lg:mb-8 z-10"
-            >
-              Organizers of emotional and unforgettable events
-            </motion.p>
-          </div>
-        </div>
-
-        {/* Hero 3D Illustration Area */}
-        <div className="relative w-full flex-1 min-h-[45vh] lg:min-h-[55vh] flex justify-center items-end overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#050505] to-transparent z-10 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
-
-          <img 
-            src="/landing_bg.jpg" 
-            alt="Event 3D Illustration"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-90 scale-105"
-            style={{ 
-              maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)'
-            }}
+        {/* Banner Image Area */}
+        <div className="relative w-full flex-1 flex justify-center items-center overflow-hidden h-full">
+          <motion.img 
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            src="/landing_banner.png" 
+            alt="International Cadet Conference Banner"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
+          {/* Subtle overlay to enhance contrast for the floating header if it overlaps */}
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
         </div>
       </main>
 
